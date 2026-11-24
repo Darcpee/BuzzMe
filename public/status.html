@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>PingoApp Status</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .status-ring {
+            padding: 2px;
+            background: linear-gradient(45deg, #0058bc, #53e16f);
+            border-radius: 50%;
+        }
+        .status-ring-inner {
+            background: #ffffff;
+            padding: 2px;
+            border-radius: 50%;
+        }
+        body {
+            -webkit-tap-highlight-color: transparent;
+            background-color: #faf9fe;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#1a1b1f",
+                        "tertiary": "#9e3d00",
+                        "surface-tint": "#005bc1",
+                        "secondary-fixed-dim": "#53e16f",
+                        "tertiary-fixed": "#ffdbcc",
+                        "on-primary-fixed": "#001a41",
+                        "error": "#ba1a1a",
+                        "surface-container": "#eeedf3",
+                        "surface-container-high": "#e9e7ed",
+                        "on-primary-container": "#fefcff",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#6ffb85",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#f4f3f8",
+                        "on-surface": "#1a1b1f",
+                        "surface-bright": "#faf9fe",
+                        "on-tertiary-container": "#fffbff",
+                        "primary-fixed": "#d8e2ff",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e3e2e7",
+                        "on-secondary-fixed-variant": "#00531c",
+                        "on-surface-variant": "#414755",
+                        "primary-container": "#0070eb",
+                        "inverse-primary": "#adc6ff",
+                        "tertiary-fixed-dim": "#ffb595",
+                        "outline": "#717786",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#faf9fe",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#351000",
+                        "primary": "#0058bc",
+                        "secondary": "#006e28",
+                        "on-secondary-container": "#00732a",
+                        "on-primary-fixed-variant": "#004493",
+                        "surface-variant": "#e3e2e7",
+                        "secondary-fixed": "#72fe88",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#2f3034",
+                        "primary-fixed-dim": "#adc6ff",
+                        "outline-variant": "#c1c6d7",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#002107",
+                        "background": "#faf9fe",
+                        "tertiary-container": "#c64f00",
+                        "on-tertiary-fixed-variant": "#7c2e00",
+                        "inverse-on-surface": "#f1f0f5",
+                        "surface-dim": "#dad9df"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter-mobile": "12px",
+                        "base": "4px",
+                        "xl": "32px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "xs": "4px",
+                        "margin-mobile": "16px",
+                        "sm": "8px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "message-preview": ["Inter"],
+                        "h2": ["Inter"],
+                        "body-md": ["Inter"],
+                        "timestamp": ["Inter"],
+                        "label-md": ["Inter"],
+                        "h1": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "message-preview": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "h2": ["20px", {"lineHeight": "26px", "letterSpacing": "-0.4px", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "timestamp": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "label-md": ["13px", {"lineHeight": "18px", "letterSpacing": "0.1px", "fontWeight": "600"}],
+                        "h1": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.5px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-lg text-on-background">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center h-16 px-margin-mobile w-full bg-surface dark:bg-surface-dim">
+<div class="flex items-center gap-4">
+<button class="p-2 active:opacity-80 transition-opacity hover:bg-surface-container-low transition-colors rounded-full text-primary dark:text-primary-fixed">
+<span class="material-symbols-outlined">camera_alt</span>
+</button>
+<h1 class="font-h1 text-h1 text-primary dark:text-primary-fixed">PingoApp</h1>
+</div>
+<button class="p-2 active:opacity-80 transition-opacity hover:bg-surface-container-low transition-colors rounded-full text-primary dark:text-primary-fixed">
+<span class="material-symbols-outlined">search</span>
+</button>
+</header>
+<main class="pt-20 pb-24 px-margin-mobile max-w-2xl mx-auto">
+<!-- My Status Section -->
+<section class="mb-8">
+<h2 class="font-h2 text-h2 mb-4 text-on-surface">My Status</h2>
+<div class="flex items-center gap-4 p-md bg-surface-container-lowest rounded-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)] border border-outline-variant/30">
+<div class="relative">
+<div class="w-14 h-14 rounded-full overflow-hidden border-2 border-surface">
+<img class="w-full h-full object-cover" data-alt="A modern lifestyle portrait of a confident young professional smiling gently. The lighting is soft and natural, emphasizing a bright and airy atmosphere. The background is a blurred minimalist office with high-key white tones and clean lines, reflecting a sophisticated and reliable brand identity for PingoApp." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAr78XHsQDz9OTvkymlcM_FrpSdCQinMf58Flrod2YiBhYzoTNkdpY_to_-ffaTMxLg6n8pKqGk2KlRkXgu_oJHXU_gvlkogw66MiuEKb7FH1-JzrBcOMF32ALoSwx1dEsAawGjDF_23mS_IFPqmf_ubcFM3ulEdM7CgcCUCxRQyOnEXBPBhN1_f6BYCr8CX8Y6MNcFmDJemh2AY-AOW0DWBIRCSR5Ym3IOzZSjwOkBPaJ-qqQ9tkNcXEwNapfVGJtWdfABp9Q_ug"/>
+</div>
+<div class="absolute bottom-0 right-0 bg-primary text-white w-5 h-5 rounded-full flex items-center justify-center border-2 border-white">
+<span class="material-symbols-outlined !text-[14px]">add</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">My Status</span>
+<span class="font-timestamp text-timestamp text-on-surface-variant">Tap to add status update</span>
+</div>
+</div>
+</section>
+<!-- Recent Updates Section -->
+<section>
+<div class="flex justify-between items-center mb-4">
+<h2 class="font-h2 text-h2 text-on-surface">Recent Updates</h2>
+<span class="font-label-md text-label-md text-primary">View All</span>
+</div>
+<div class="space-y-sm">
+<!-- Status List Item 1 -->
+<div class="flex items-center h-[72px] px-sm bg-surface-container-lowest rounded-xl hover:bg-surface-container-low transition-all cursor-pointer">
+<div class="status-ring mr-4">
+<div class="status-ring-inner">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A close-up high-fashion portrait of a creative individual with vibrant energy. The lighting is dynamic with soft shadows, set against a clean pastel background. The overall aesthetic is modern minimalism, focusing on approachable and friendly facial expressions suitable for a social communication app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTqfG4n3OjYqp81bQ62vqR_jEz2f_5wNqB4LB6DOsI7kPDP3cNb4CzUucyUHfLcgi_ZbvAMu8I_nXmosFJwVJjjgUzM1zr1FmLMLG5UUyFrzBmU8CX2aOQNCZW-yXHL8sqkGrxM4czDAfGUREKbG1eqqf9qgq68qK7aHfw1XEuuW_eAiGnwr3EbFbCy-_uKJ2B5HnByXM74XOeiECnfqSEOWyl8w8sBusNcTGZnLy7auzTYe2V0u7MUYBsH4tc4fjl7KX3-HIIlg"/>
+</div>
+</div>
+</div>
+<div class="flex flex-col border-b border-outline-variant/30 flex-1 h-full justify-center">
+<span class="font-label-md text-label-md text-on-surface">Elena Rodriguez</span>
+<span class="font-timestamp text-timestamp text-on-surface-variant">12 minutes ago</span>
+</div>
+</div>
+<!-- Status List Item 2 -->
+<div class="flex items-center h-[72px] px-sm bg-surface-container-lowest rounded-xl hover:bg-surface-container-low transition-all cursor-pointer">
+<div class="status-ring mr-4">
+<div class="status-ring-inner">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A portrait of a cheerful man in a stylish casual outfit, captured in a bright outdoor setting with soft bokeh. The mood is authentic and trustworthy. The image uses a clean, high-contrast palette of whites and blues, perfectly matching the PingoApp visual language and modern design standards." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8Ei3XTn6nZ37ZtjlxwNLmzYYKnj8Ncqo1-weBpSd0kZutyYpLTutu-y2lr9hC1_XKKAV9P4Xsu-mXeDuatPvenTxbWHWHw8UucAFfIK5HGWAUKN3Xkh1bu2CYR7kL1TAxlPRUR481IFAhzwb0f5MPvA-Bizlvejombm7UPEyydiVBrBlV0kguO26pftNvRehHbd2a7fp599R5leKCUlJEETFC44kFBjIoHfwaeaNQoPbrvZo7TUedXrh-LQzZAIBEHuXRuyOktA"/>
+</div>
+</div>
+</div>
+<div class="flex flex-col border-b border-outline-variant/30 flex-1 h-full justify-center">
+<span class="font-label-md text-label-md text-on-surface">Marcus Chen</span>
+<span class="font-timestamp text-timestamp text-on-surface-variant">45 minutes ago</span>
+</div>
+</div>
+<!-- Status List Item 3 -->
+<div class="flex items-center h-[72px] px-sm bg-surface-container-lowest rounded-xl hover:bg-surface-container-low transition-all cursor-pointer">
+<div class="status-ring mr-4">
+<div class="status-ring-inner">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional and friendly headshot of a woman with a warm smile. The background is a soft-focus urban environment at dusk, with gentle blue and amber lighting. The style is polished and contemporary, emphasizing the high-trust social environment of the messaging platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4LpwsAKbHkcJa0V4NrfC2pPupnh5fiBj1Dp0ZMvMIYvlNGXmHancFuONj9NoWESYRUVv1DshK9XdAWXrw176GCBbZ6l6Y49Pe6fPb45BgSnYisCkz1IkI3EgULDziy-YHm9c4uLsIKfj-pJZJXskpFA-UffqVfSCucLpLhqhTkYQGxBx-T57N1pcF_j0ucJDx4gCRlkYeoYGdxbx4u2Z4sn56vuzatN6Am0TrJHOcqv_oKdxsEFYF0Y-zln7v9Dc9QsNx07bKDw"/>
+</div>
+</div>
+</div>
+<div class="flex flex-col border-b border-outline-variant/30 flex-1 h-full justify-center">
+<span class="font-label-md text-label-md text-on-surface">Sarah Jenkins</span>
+<span class="font-timestamp text-timestamp text-on-surface-variant">2 hours ago</span>
+</div>
+</div>
+<!-- Status List Item 4 -->
+<div class="flex items-center h-[72px] px-sm bg-surface-container-lowest rounded-xl hover:bg-surface-container-low transition-all cursor-pointer">
+<div class="status-ring mr-4">
+<div class="status-ring-inner">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="An artistic portrait of a young man looking thoughtfully into the distance. The lighting is artistic and directional, creating a sense of depth and modern sophistication. The color palette is muted with elegant neutral tones, aligning with the minimalist and high-end aesthetic of the UI design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBY22bjNuGkJPluQyfQJU-bzLOcpeOV-97D6n5rc9vqzq4TMQTMKCOPSyYkztOpDHnEwRSSb3ikrl_4QXEcUb_kPwCvJvRn9ovlJFkQfCsUoq55RjfPm6ysmO_Z1oxXT8-uLDrhkuqpZBKx-saNBLoJq9C7i9Yemmmm-rmGK55l6Fsv004R1aTqGvv_LA6pN1qlq0GZvXMk2zKemVX7F6RaLKr5JrYRJ3TsQV751zoNh41w2-T91qYX_66WA8_LbWWshPzeXGh6LA"/>
+</div>
+</div>
+</div>
+<div class="flex flex-col border-b border-outline-variant/30 flex-1 h-full justify-center">
+<span class="font-label-md text-label-md text-on-surface">David Okafor</span>
+<span class="font-timestamp text-timestamp text-on-surface-variant">5 hours ago</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Viewed Updates (Secondary/Muted Section) -->
+<section class="mt-8">
+<h2 class="font-label-md text-label-md text-on-surface-variant mb-4 opacity-70">Viewed Updates</h2>
+<div class="space-y-sm opacity-60 grayscale-[0.2]">
+<div class="flex items-center h-[72px] px-sm bg-surface-container-lowest rounded-xl cursor-pointer">
+<div class="mr-4 p-[2px] bg-outline-variant rounded-full">
+<div class="status-ring-inner">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A minimalist lifestyle shot of a woman sipping coffee in a bright, modern interior. The shot is clean with ample negative space. The lighting is diffused and even, creating a calm and reliable mood for the social interaction history section of the application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzthxfMj0s1yhdRSOJgZqK5e6MS_Oggj1jNPmR-QXe3dfPDZ1Sr5m0Lj2MEvyZJi74NYWjWCFqfXSVWXpBZg2qAvABjU6zu_FPbF4Lp3C2O9tYqBjj3-nzMBSqU95j5Y5W6t1TpLri5ropOy2epe_GKozgQTL8g_zOGVUoki3jHbHMm9btdQT4iVTjBpBmQbq6BlvmetEOtXzetWiKaDY0bn0DQET3ozXUhonbl1sRHBVupgyQ4Bl-TIkudN0fvHoPb6-oaxPNAw"/>
+</div>
+</div>
+</div>
+<div class="flex flex-col flex-1 h-full justify-center">
+<span class="font-label-md text-label-md text-on-surface">Jordan Smith</span>
+<span class="font-timestamp text-timestamp text-on-surface-variant">Yesterday, 10:30 PM</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Action Button Contextual (FAB) -->
+<button class="fixed bottom-24 right-margin-mobile w-14 h-14 bg-primary text-white rounded-full shadow-lg flex items-center justify-center active:scale-95 transition-transform z-40">
+<span class="material-symbols-outlined">edit</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-[72px] bg-surface dark:bg-surface-dim px-2 pb-safe border-t border-outline-variant dark:border-outline">
+<!-- Chats Tab -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline gap-1 hover:bg-surface-container-highest transition-all active:scale-95 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">chat</span>
+<span class="font-label-md text-label-md">Chats</span>
+</a>
+<!-- Status Tab (ACTIVE) -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed gap-1 hover:bg-surface-container-highest transition-all active:scale-95 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">motion_photos_on</span>
+<span class="font-label-md text-label-md font-bold">Status</span>
+</a>
+<!-- Calls Tab -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline gap-1 hover:bg-surface-container-highest transition-all active:scale-95 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">call</span>
+<span class="font-label-md text-label-md">Calls</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for status list items
+        document.querySelectorAll('.cursor-pointer').forEach(item => {
+            item.addEventListener('mousedown', () => {
+                item.classList.add('scale-[0.98]');
+            });
+            item.addEventListener('mouseup', () => {
+                item.classList.remove('scale-[0.98]');
+            });
+            item.addEventListener('mouseleave', () => {
+                item.classList.remove('scale-[0.98]');
+            });
+        });
+
+        // Pull-to-refresh simulation logic placeholder
+        let touchstartY = 0;
+        let touchendY = 0;
+        
+        document.addEventListener('touchstart', e => {
+            touchstartY = e.changedTouches[0].screenY;
+        });
+
+        document.addEventListener('touchend', e => {
+            touchendY = e.changedTouches[0].screenY;
+            if (touchendY > touchstartY + 100 && window.scrollY === 0) {
+                // Simulate refresh
+                console.log('Refreshing status updates...');
+            }
+        });
+    </script>
+</body></html>

@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PingoApp - Conversation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link href="./output-style.css" rel="stylesheet">
+</head>
+
+<body
+    class="bg-gray-50 text-gray-900 h-screen overflow-hidden flex flex-col">
+
+    <!-- ==========================================
+         HEADER
+    =========================================== -->
+
+    <header
+        class="fixed top-0 left-0 right-0 z-50 h-16 bg-white border-b border-gray-200 flex items-center justify-between px-4">
+
+        <!-- Left -->
+<!-- Header -->
+<!-- <div class="w-full flex items-center pl-4 py-2 pr-2"> -->
+
+    <!-- LEFT: Profile -->
+    <div class="flex items-center gap-3">
+
+        <!-- Back button -->
+        <button
+            id="backBtn"
+            type="button"
+            class="w-10 h-10 rounded-full hover:bg-gray-100 transition flex items-center justify-center">
+
+            <i class="fa-solid fa-arrow-left text-blue-600"></i>
+
+        </button>
+
+        <!-- Avatar -->
+        <div class="relative">
+
+            <img
+                id="receiverImage"
+                class="w-10 h-10 rounded-full object-cover">
+
+            <span
+                id="onlineIndicator"
+                class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-green-500 border-2 border-white">
+            </span>
+
+        </div>
+
+        <!-- Name -->
+        <div>
+
+            <h2
+                id="receiverName"
+                class="font-semibold">
+                loading...
+            </h2>
+
+            <p
+                id="receiverStatus"
+                class="text-xs text-gray-500">
+                Online
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- RIGHT: Call buttons -->
+    <div class="flex items-center gap-2 ml-auto">
+
+        <!-- Voice Call -->
+        <button
+            id="voiceCallBtn"
+            type="button"
+            class="w-10 h-10 rounded-full hover:bg-gray-100 transition flex items-center justify-center">
+
+            <i class="fa-solid fa-phone text-blue-600"></i>
+
+        </button>
+
+        <!-- Video Call -->
+        <button
+            id="videoCallBtn"
+            type="button"
+            class="w-10 h-10 rounded-full hover:bg-gray-100 transition flex items-center justify-center">
+
+            <i class="fa-solid fa-video text-blue-600"></i>
+
+        </button>
+
+    </div>
+
+</div>
+    </header>
+
+    
+
+    <!-- ==========================================
+         CHAT AREA
+    =========================================== -->
+
+   <main
+           id="chatContainer"
+    class="overflow-y-auto px-4 py-4"
+    style="
+        height: calc(100vh - 144px);
+        min-height: 0;
+        max-height: calc(100vh - 144px);
+        flex: 0 0 calc(100vh - 144px);">
+
+        <div id="messagesList" class="space-y-4">
+
+            <!-- Today -->
+            <div class="flex justify-center">
+                <span class="bg-gray-200 text-gray-600 text-xs px-3 py-1 rounded-full">
+                    Today
+                </span>
+            </div>
+
+            <!-- Messages inserted here -->
+
+        </div>
+
+        <div
+            id="typingIndicator"
+            class="hidden mt-3"
+        >
+            <div class="inline-flex items-center gap-2 bg-gray-200 px-4 py-2 rounded-2xl">
+                <span id="typingText">
+                    typing...
+                </span>
+            </div>
+        </div>
+
+        <div id="chatBottom" class="h-px"></div>
+
+    </main>
+
+        <!-- ==========================================
+         MESSAGE INPUT
+    =========================================== -->
+
+   <footer class="shrink-0 bg-white border-t border-gray-200 pt-4 pb-3">
+
+    <!-- IMAGE PREVIEW -->
+<div
+    id="imagePreviewContainer"
+    class="hidden px-3 pt-1 pb-0"
+>
+    <div class="flex items-center gap-2">
+
+        <img
+            id="imagePreview"
+            src=""
+            alt="Selected image preview"
+            class="h-10 w-10 shrink-0 rounded-xl object-cover border border-gray-300"
+        />
+
+        <div class="min-w-0 flex-1">
+            <p class="text-xs font-medium text-gray-800">
+                Image selected
+            </p>
+
+            <p
+                id="imageFileName"
+                class="max-w-[200px] truncate text-[11px] text-gray-500"
+            ></p>
+        </div>
+
+        <button
+            id="cancelImageBtn"
+            type="button"
+            class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full hover:bg-gray-100"
+        >
+            <i class="fa-solid fa-xmark text-sm text-gray-600"></i>
+        </button>
+
+        <button
+            id="sendImageBtn"
+            type="button"
+            class="shrink-0 rounded-full bg-blue-600 px-6 py-3
+           text-sm font-medium text-white
+           shadow-sm transition hover:bg-blue-700 mt-2"
+        >
+            Send
+        </button>
+
+    </div>
+</div>
+
+    <!-- MESSAGE INPUT ROW -->
+    <div class="flex h-20 items-center gap-3 px-3">
+
+        <!-- Attachment -->
+        <button
+            id="attachBtn"
+            type="button"
+            class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition hover:bg-gray-100 mt-2"
+        >
+            <i class="fa-solid fa-paperclip text-lg text-gray-600"></i>
+        </button>
+
+        <input
+            type="file"
+            id="imageInput"
+            accept="image/*"
+            class="hidden"
+        />
+
+        <!-- Message Input -->
+        <div
+            class="flex flex-1 items-center rounded-full bg-gray-100 px-4 py-2 mt-5"
+        >
+            <textarea
+                id="messageInput"
+                rows="1"
+                maxlength="500"
+                placeholder="Type a message..."
+                class="max-h-32 flex-1 resize-none bg-transparent text-gray-700 outline-none placeholder:text-gray-400"
+            ></textarea>
+
+            <button
+                id="emojiBtn"
+                type="button"
+                class="ml-3"
+            >
+                <i class="fa-regular fa-face-smile text-xl text-gray-600"></i>
+            </button>
+        </div>
+
+        <!-- Send Button -->
+        <button
+            id="sendBtn"
+            type="button"
+            disabled
+            class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg transition hover:bg-blue-700"
+        >
+            <i
+                id="sendIcon"
+                class="fa-solid fa-microphone"
+            ></i>
+        </button>
+
+    </div>
+
+</footer>
+
+ <!-- =========================================================
+     INCOMING CALL MODAL
+========================================================= -->
+
+<div
+    id="incomingCallModal"
+    class="hidden fixed inset-0 z-[100] items-center justify-center
+            bg-gray-950"
+>
+
+    <!-- MAIN CARD -->
+    <div
+        class="relative flex min-h-[520px] w-[92%] max-w-md
+               flex-col items-center justify-between
+               rounded-[2rem] bg-gray-900
+               px-6 py-10 text-white shadow-2xl"
+    >
+
+        <!-- TOP -->
+        <div class="flex flex-col items-center">
+
+            <!-- CALL TYPE -->
+            <p
+                class="mb-8 text-sm font-medium tracking-wide text-gray-400"
+            >
+                Incoming call
+            </p>
+
+
+            <!-- CALLER IMAGE -->
+            <div
+                class="relative flex items-center justify-center"
+            >
+
+                <!-- Outer ring -->
+                <div
+                    class="absolute h-40 w-40 rounded-full
+                           border border-gray-700"
+                ></div>
+
+                <div
+                    class="absolute h-36 w-36 rounded-full
+                           border border-gray-800"
+                ></div>
+
+
+                <img
+                    id="incomingCallImage"
+                    
+                    alt="Caller"
+                    class="relative h-32 w-32 rounded-full
+                           border-4 border-gray-800
+                           object-cover shadow-xl"
+                >
+
+            </div>
+
+
+            <!-- CALLER NAME -->
+            <h2
+                id="incomingCallName"
+                class="mt-8 text-center text-2xl font-semibold"
+            >
+                Incoming Call
+            </h2>
+
+
+            <!-- CALL TYPE -->
+            <p
+                id="incomingCallType"
+                class="mt-2 text-sm text-gray-400"
+            >
+                Incoming voice call...
+            </p>
+
+        </div>
+
+
+        <!-- BOTTOM BUTTONS -->
+        <div class="w-full">
+
+            <div
+                class="flex items-center justify-center
+                       gap-16"
+            >
+
+                <!-- =========================
+                     REJECT
+                ========================== -->
+
+                <div class="flex flex-col items-center gap-3">
+
+                    <button
+                        id="rejectCallBtn"
+                        type="button"
+                        class="flex h-16 w-16 items-center
+                               justify-center rounded-full
+                               bg-red-600 text-white
+                               shadow-lg
+                               transition duration-200
+                               hover:bg-red-700
+                               active:scale-90"
+                    >
+
+                        <i
+                            class="fa-solid fa-phone-slash text-xl"
+                        ></i>
+
+                    </button>
+
+                    <span
+                        class="text-xs text-gray-400"
+                    >
+                        Decline
+                    </span>
+
+                </div>
+
+
+                <!-- =========================
+                     ACCEPT
+                ========================== -->
+
+                <div class="flex flex-col items-center gap-3">
+
+                    <button
+                        id="acceptCallBtn"
+                        type="button"
+                        class="flex h-16 w-16 items-center
+                               justify-center rounded-full
+                               bg-green-500 text-white
+                               shadow-lg
+                               transition duration-200
+                               hover:bg-green-600
+                               active:scale-90"
+                    >
+
+                        <i
+                            id="acceptCallIcon"
+                            class="fa-solid fa-phone text-xl"
+                        ></i>
+
+                    </button>
+
+                    <span
+                        class="text-xs text-gray-400"
+                    >
+                        Accept
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     ACTIVE CALL MODAL
+========================================================= -->
+
+<div
+    id="activeCallModal"
+    class="hidden fixed inset-0 z-[110]
+           bg-gray-950 text-white"
+>
+
+    <!-- =====================================================
+         VIDEO CALL BACKGROUND
+    ====================================================== -->
+
+    <div
+        id="videoCallContainer"
+        class="relative hidden h-full w-full"
+    >
+
+        <!-- REMOTE VIDEO -->
+
+        <video
+            id="remoteVideo"
+            autoplay
+            playsinline
+            class="absolute inset-0 h-full w-full
+                   object-cover bg-gray-950"
+        ></video>
+
+
+        <!-- DARK GRADIENT -->
+
+        <div
+            class="pointer-events-none absolute inset-0
+                   bg-gradient-to-b
+                   from-black/60 via-transparent
+                   to-black/80"
+        ></div>
+
+
+        <!-- CALL INFORMATION -->
+
+        <div
+            class="absolute left-5 right-5 top-6
+                   flex items-center gap-4"
+        >
+
+            <img
+                id="activeCallImage"
+                alt="User"
+                class="hidden h-12 w-12 rounded-full
+                       border-2 border-white/30
+                       object-cover"
+            >
+
+            <div>
+
+                <h2
+                    id="activeCallName"
+                    class="text-lg font-semibold"
+                >
+                    Calling...
+                </h2>
+
+                <p
+                    id="callStatus"
+                    class="text-sm text-gray-300"
+                >
+                    Calling...
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- LOCAL VIDEO PREVIEW -->
+
+        <div
+            class="absolute right-4 top-6
+                   overflow-hidden rounded-2xl
+                   border border-white/20
+                   shadow-2xl
+                   md:right-6 md:top-6"
+        >
+
+            <video
+                id="localVideo"
+                autoplay
+                muted
+                playsinline
+                class="h-36 w-24 object-cover
+                       bg-gray-800
+                       md:h-48 md:w-32"
+            ></video>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         VOICE CALL SCREEN
+    ====================================================== -->
+
+    <div
+        id="voiceCallContainer"
+        class="relative flex h-full w-full
+               flex-col items-center justify-center
+               bg-gray-950"
+    >
+
+        <!-- DECORATIVE CIRCLE -->
+
+        <div
+            class="absolute h-72 w-72 rounded-full
+                   border border-gray-800"
+        ></div>
+
+        <div
+            class="absolute h-60 w-60 rounded-full
+                   border border-gray-900"
+        ></div>
+
+
+        <!-- USER IMAGE -->
+
+        <img
+            id="voiceCallImage"
+            
+            alt="User"
+            class="relative h-40 w-40 rounded-full
+                   border-4 border-gray-800
+                   object-cover shadow-2xl"
+        >
+
+
+        <!-- NAME -->
+
+        <h2
+            id="voiceCallName"
+            class="mt-8 text-2xl font-semibold"
+        >
+            Calling...
+        </h2>
+
+
+        <!-- STATUS -->
+
+        <p
+            id="voiceCallStatus"
+            class="mt-2 text-sm text-gray-400"
+        >
+            Calling...
+        </p>
+
+        <!-- CALL TIMER -->
+
+<p
+    id="voiceCallTimer"
+    class="mt-2 text-lg font-medium
+           tracking-wider text-gray-300"
+>
+    00:00
+</p>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         CALL CONTROLS
+    ====================================================== -->
+
+    <div
+        class="absolute bottom-0 left-0 right-0
+               flex justify-center
+               bg-gradient-to-t from-black/90
+               to-transparent
+               px-6 pb-10 pt-20"
+    >
+
+        <div
+            class="flex items-center gap-5"
+        >
+
+            <!-- MUTE -->
+
+            <button
+                id="muteBtn"
+                type="button"
+                class="flex h-14 w-14 items-center
+                       justify-center rounded-full
+                       bg-gray-800/90 text-white
+                       backdrop-blur
+                       transition
+                       hover:bg-gray-700
+                       active:scale-90"
+            >
+
+                <i
+                    id="muteIcon"
+                    class="fa-solid fa-microphone"
+                ></i>
+
+            </button>
+
+
+            <!-- CAMERA -->
+
+            <button
+                id="cameraBtn"
+                type="button"
+                class="flex h-14 w-14 items-center
+                       justify-center rounded-full
+                       bg-gray-800/90 text-white
+                       backdrop-blur
+                       transition
+                       hover:bg-gray-700
+                       active:scale-90"
+            >
+
+                <i
+                    id="cameraIcon"
+                    class="fa-solid fa-video"
+                ></i>
+
+            </button>
+
+
+            <!-- END CALL -->
+
+            <button
+                id="endCallBtn"
+                type="button"
+                class="flex h-16 w-16 items-center
+                       justify-center rounded-full
+                       bg-red-600 text-white
+                       shadow-xl
+                       transition
+                       hover:bg-red-700
+                       active:scale-90"
+            >
+
+                <i
+                    class="fa-solid fa-phone-slash text-xl"
+                ></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Hidden audio element -->
+
+<audio
+    id="remoteAudio"
+    autoplay>
+</audio>
+
+
+
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    =========================================== -->
+    <script src="http://localhost:4600/socket.io/socket.io.js"></script>
+    <script src="./js/socket.js"></script>
+    <script src="./js/conversation.js"></script>
+    <script src="./js/call.js"></script>
+   
+
+</body>
+
+</html>

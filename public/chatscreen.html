@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PingoApp - Chats</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link href="./output-style.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-gray-100 text-gray-900 font-sans">
+
+    <!-- =========================
+            HEADER
+    ========================== -->
+
+    <header
+        class="fixed top-0 left-0 w-full h-16 bg-white shadow-sm z-50 flex items-center justify-between px-4">
+
+        <!-- Left -->
+
+        <div class="flex items-center gap-3">
+
+            <button
+                class="w-10 h-10 rounded-full hover:bg-gray-100 transition">
+
+                <i
+                    class="fa-solid fa-camera text-blue-600 text-lg"></i>
+
+            </button>
+
+            <h1
+                class="text-2xl font-bold text-blue-600">
+
+                PingoApp
+
+            </h1>
+
+        </div>
+
+        <!-- Right -->
+
+        <div class="flex items-center gap-2">
+
+            <button
+                class="w-10 h-10 rounded-full hover:bg-gray-100 transition">
+
+                <i
+                    class="fa-solid fa-magnifying-glass text-gray-600"></i>
+
+            </button>
+
+            <button
+                class="w-10 h-10 rounded-full hover:bg-gray-100 transition">
+
+                <i
+                    class="fa-solid fa-ellipsis-vertical text-gray-600"></i>
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+
+
+    <!-- =========================
+            MAIN
+    ========================== -->
+
+    <main class="pt-20 pb-28">
+
+
+
+
+        <!-- =========================
+                STATUS SECTION
+        ========================== -->
+
+        <section
+            class="flex gap-4 overflow-x-auto px-4 pb-4 scrollbar-hide">
+
+            <!-- My Status -->
+
+            <div
+                class="flex flex-col items-center shrink-0">
+
+                <div
+                    class="relative w-16 h-16">
+
+                    <img
+                        id="myProfileImage"
+                        
+                        class="w-full h-full rounded-full border-2 border-blue-600 object-cover p-1">
+
+                    <div
+                        class="absolute bottom-0 right-0 w-5 h-5 rounded-full bg-blue-600 flex items-center justify-center border-2 border-white">
+
+                        <i
+                            class="fa-solid fa-plus text-white text-[10px]"></i>
+
+                    </div>
+
+                </div>
+
+                <span
+                    class="text-xs mt-2">
+
+                    My Status
+
+                </span>
+
+            </div>
+
+
+
+
+            <!-- Alex -->
+
+            <div
+                class="flex flex-col items-center shrink-0">
+
+                <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAKlB4tPO8ddDUdYhcWMa4f0UdQvddnkrSfrHOVXCcvREdGVVqehpfLf4UCdAVmyErzjxmbLWCZfXzulmi76Ysk80MWulmsm2Sd-bjKiOHpw2ycllfFyZvxQMB5yk0OA2kDLC6aTqXgFfvY1jBKYVay_fg_AszHFBXwTukdo9EYCDsNWsZYV8-j4c8qJk4H6fh7wO_aSibjsyDa0zdATs27YFBJOKQ1SfydZoLHPobsmGHtSG6Gf0lgm1Db6P6RnNCNhWNBhYU4w"
+                    class="w-16 h-16 rounded-full border-2 border-green-500 p-1 object-cover">
+
+                <span
+                    class="text-xs mt-2">
+
+                    Alex
+
+                </span>
+
+            </div>
+
+
+
+
+            <!-- Jordan -->
+
+            <div
+                class="flex flex-col items-center shrink-0">
+
+                <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBn3YZBuoRqBiHtzwjSWFjJryC2a-Oct4lp8IQMNwjp09DHhkHvXPkIGV_qZmVXN3Ii6PEzEkUnYSPbAIX09DDoKKrDz1IIBpFADmTJ9RiMpv7C753CnKSMpbr2XQowBkgbkS_JUFVYeIps8As1Q3xZuvNC8xxyfYNh_GwuX3hvw0MaLSSBotW8Gzqc7uTqQqPd87jFuApZveQXdYEWhjcy2HPkN8-6hzt2M4Vg08OqWAVUuzWgwmyA76q3JUmx4zYzbHLd0HA7qw"
+                    class="w-16 h-16 rounded-full border-2 border-green-500 p-1 object-cover">
+
+                <span
+                    class="text-xs mt-2">
+
+                    Jordan
+
+                </span>
+
+            </div>
+
+
+
+
+            <!-- Sarah -->
+
+            <div
+                class="flex flex-col items-center shrink-0">
+
+                <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCOi4S8FXxQuCCgPZ3_XhPbqhCwQoboZpCnFlYiLkwT-9GBaP5vV1hXSnjN0JhVokAopor2Or_hL7EAQWzrTlwTq0I90h0ZaF0y7hnojUL8ss-rSh5OjG8C7em3H6OcVBjV8SSwCaq2xbZGISa-mj0gRiKYUrhwZPYggaI0ZqfJ6dnz-d3UdYVEqMaM2e03iGXDaveSMQm6Hfk8vMtBGFgIq4jD3kI2t8Mr1LdkpYVyxoPHc8GF-hsEp2-T54TL8P85n98F8tv9A"
+                    class="w-16 h-16 rounded-full border-2 border-green-500 p-1 object-cover">
+
+                <span
+                    class="text-xs mt-2">
+
+                    Sarah
+
+                </span>
+
+            </div>
+
+        </section>
+
+
+
+
+
+        <!-- =========================
+            CHAT LIST STARTS HERE
+        ========================== -->
+
+        <section
+        id="chatList"
+            class="bg-white rounded-t-3xl shadow-sm mt-2">
+
+            <div
+                class="px-4 pt-6 pb-3">
+
+                <h2
+                    class="text-xl font-bold">
+
+                    Messages
+
+                </h2>
+
+            </div>
+                        <!-- =========================
+                    CHAT ITEM 1
+            ========================== -->
+
+            <div
+                class="flex items-center px-4 py-4 hover:bg-gray-50 transition cursor-pointer">
+
+                <div class="relative">
+
+                    <img
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRh9kcGxwaIK6GOG_KS6VgUAKYExHNi1g3_0ANE_DgU0Z5PFfxHPsp0Sz8Ze6m8LAwJOs55A2ZyZQFQNvhLZNP4GNngyHECfOZLFEqQPhL1Kw39pE52kLa-7broKolLWtpaM4cvdUg5WOuf515k7ca1Zp_rpEoCgnCn6TH5xgvw_650JrLbYc76odNdSUY8c5EZDeMh98LwLFxyoc8gVFI2CqB5J030SSDF1UaMjoI1_IzPNzx8lhbAH530Z9LeJfL481Z_Hse-g"
+                        class="w-14 h-14 rounded-full flex items-center justify-center object-cover">
+
+                    <span
+                        class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full">
+                    </span>
+
+                </div>
+
+                <div class="flex-1 ml-4 border-b border-gray-100 pb-3">
+
+                    <div class="flex justify-between">
+
+                        <h3 class="font-semibold text-gray-800">
+                            David Chen
+                        </h3>
+
+                        <span class="text-xs text-blue-600 font-semibold">
+                            2:22 PM
+                        </span>
+
+                    </div>
+
+                    <div class="flex justify-between items-center mt-1">
+
+                        <p class="text-gray-500 text-sm truncate">
+                            Hey, are we still meeting for coffee at the square?
+                        </p>
+
+                        <span
+                            class="bg-blue-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+
+                            2
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+
+
+            <!-- =========================
+                    CHAT ITEM 2
+            ========================== -->
+
+            <div
+                class="flex items-center px-4 py-4 hover:bg-gray-50 transition cursor-pointer">
+
+                <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHliGQTRZrgt9S8jeE2cbFzfr76rIey205-DCNLSeN929DyTdkYAiIWGlKedIIOKzgmUPXPb8j6Ke8D52yq_FIiDgxS2VItSn82C9siXOsv766QCbI8jvgyQx8N1IRZquP4MJzYDxtA7Wajo9_4pq8XO7QvZCKVZTSUgAhOmwgmGXKDBWAgirXByzZxbLAjS2gEpfA88N1vP0cGLo0YnJNrW2OENEMtx9jIuUp6tDR6bz2Dy8wF7qO6U69s8UkpO5ES7fH2p4s5g"
+                    class="w-14 h-14 rounded-full object-cover">
+
+                <div class="flex-1 ml-4 border-b border-gray-100 pb-3">
+
+                    <div class="flex justify-between">
+
+                        <h3 class="font-semibold">
+                            Elena Rodriguez
+                        </h3>
+
+                        <span class="text-xs text-gray-400">
+                            12:05 PM
+                        </span>
+
+                    </div>
+
+                    <div class="flex items-center gap-2 mt-1">
+
+                        <i
+                            class="fa-solid fa-check-double text-gray-400 text-sm">
+                        </i>
+
+                        <p class="text-gray-500 text-sm">
+                            That presentation looked amazing!
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+
+
+            <!-- =========================
+                    CHAT ITEM 3
+            ========================== -->
+
+            <div
+                class="flex items-center px-4 py-4 hover:bg-gray-50 transition cursor-pointer">
+
+                <div
+                    class="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center">
+
+                    <i
+                        class="fa-solid fa-users text-blue-600 text-xl">
+                    </i>
+
+                </div>
+
+                <div class="flex-1 ml-4 border-b border-gray-100 pb-3">
+
+                    <div class="flex justify-between">
+
+                        <h3 class="font-semibold">
+
+                            Weekend Trip 🏔️
+
+                        </h3>
+
+                        <span
+                            class="text-xs text-gray-400">
+
+                            Yesterday
+
+                        </span>
+
+                    </div>
+
+                    <p
+                        class="text-sm text-gray-500 mt-1 truncate">
+
+                        <span class="font-semibold text-blue-600">
+
+                            Marc:
+
+                        </span>
+
+                        Can someone bring extra snacks?
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+
+
+            <!-- =========================
+                    CHAT ITEM 4
+            ========================== -->
+
+            <div
+                class="flex items-center px-4 py-4 hover:bg-gray-50 transition cursor-pointer">
+
+                <div class="relative">
+
+                    <img
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfOspHWdnJrFMoFFCKpA25PDL-KuhmJF-sPP0dkTJq-D-HLSJqRWm6NkJ-FwhSHUG8RMHR13TCdHpMV14VD6a6W41JIG8YwFYx7eAXxODS5libLwYHXw5Yq0pI6U7HQ6OEQAQplhLXLNb3cI-EaZtgBOt54cagLHel1cpSmC1udyclxOOMuVvXokBm5N9sfPD3qWUWTdm6Jy4IlIoum5vnVAyBHQPycEsjkWW8u6kDTVyQ6e7EAD_Dp-jaAo-LVbPmQySIJOfdvQ"
+                        class="w-14 h-14 rounded-full object-cover">
+
+                    <span
+                        class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full">
+                    </span>
+
+                </div>
+
+                <div class="flex-1 ml-4 border-b border-gray-100 pb-3">
+
+                    <div class="flex justify-between">
+
+                        <h3 class="font-semibold">
+
+                            Grandpa
+
+                        </h3>
+
+                        <span
+                            class="text-xs text-gray-400">
+
+                            Yesterday
+
+                        </span>
+
+                    </div>
+
+                    <div
+                        class="flex items-center gap-2 mt-1">
+
+                        <i
+                            class="fa-solid fa-microphone text-gray-400">
+                        </i>
+
+                        <p
+                            class="text-sm text-gray-500">
+
+                            Voice message (0:45)
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+                        <!-- =========================
+                    CHAT ITEM 5
+            ========================== -->
+
+            <div
+                class="flex items-center px-4 py-4 hover:bg-gray-50 transition cursor-pointer">
+
+                <img
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuALkfrykhalh8w0HlixtzoOjCuTCWGztKZMHYWTsmY6O0N4UX2C2LR0MgteuSjnS7MtNRED9jhYtpaAVPIGhMgXo4Qumyhpm9wu3Kl7uX8ET8_8W3uWlr0Q2lw_LWqMYMGfVzsi09Kj9yJj9wto0g2n4d10Cj13x0Iy8xnypve-Up5n7YZ8PTmMoqHBHLM0MFl5nSqg-tRshvu4DcQGY4xGmXbEJ4PwaPQwxlong3tiUUM45cnrrz90lBMFVKmK4oEYuTkenoqd2Q"
+                    class="w-14 h-14 rounded-full object-cover">
+
+                <div class="flex-1 ml-4 pb-3">
+
+                    <div class="flex justify-between">
+
+                        <h3 class="font-semibold">
+
+                            Sam Taylor
+
+                        </h3>
+
+                        <span
+                            class="text-xs text-gray-400">
+
+                            Monday
+
+                        </span>
+
+                    </div>
+
+                    <div
+                        class="flex items-center gap-2 mt-1">
+
+                        <i
+                            class="fa-solid fa-check text-gray-400 text-sm"></i>
+
+                        <p
+                            class="text-sm text-gray-500">
+
+                            See you at the gallery!
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+
+
+    <!-- =========================
+            FLOATING CHAT BUTTON
+    ========================== -->
+
+    <button
+    id="newChatBtn"
+        class="fixed bottom-24 right-6 w-16 h-16 rounded-full bg-blue-600 text-white shadow-xl hover:bg-blue-700 transition active:scale-95">
+
+        <i
+            class="fa-solid fa-comment-dots text-2xl"></i>
+
+    </button>
+
+
+
+
+
+    <!-- =========================
+            BOTTOM NAVIGATION
+    ========================== -->
+
+    <nav
+        class="fixed bottom-0 left-0 w-full bg-white border-t shadow-lg h-20 flex justify-around items-center">
+
+        <!-- Chats -->
+
+        <a href="home.html"
+            class="flex flex-col items-center text-blue-600">
+
+            <i
+                class="fa-solid fa-comments text-xl"></i>
+
+            <span
+                class="text-xs mt-1 font-semibold">
+
+                Chats
+
+            </span>
+
+        </a>
+
+
+
+        <!-- Status -->
+
+        <a href="status.html"
+            class="flex flex-col items-center text-gray-500 hover:text-blue-600 transition">
+
+            <i
+                class="fa-solid fa-circle-play text-xl"></i>
+
+            <span
+                class="text-xs mt-1">
+
+                Status
+
+            </span>
+
+        </a>
+
+
+
+        <!-- Calls -->
+
+        <a href="calls.html"
+            class="flex flex-col items-center text-gray-500 hover:text-blue-600 transition">
+
+            <i
+                class="fa-solid fa-phone text-xl"></i>
+
+            <span
+                class="text-xs mt-1">
+
+                Calls
+
+            </span>
+
+        </a>
+
+ 
+         <!-- Status -->
+
+        <a href="settings.html"
+            class="flex flex-col items-center text-gray-500 hover:text-blue-600 transition">
+
+            <i class="fa-solid fa-gear text-xl"></i>
+
+            <span
+                class="text-xs mt-1">
+
+                Settings
+
+            </span>
+
+        </a>
+
+
+    </nav>
+<script src="http://localhost:4600/socket.io/socket.io.js"></script>
+    <script src="./js/chatscreen.js"></script>
+    <!-- Search User Modal -->
+
+<div
+    id="searchModal"
+    class="fixed inset-0 bg-black/40 hidden items-center justify-center z-50">
+
+    <div class="bg-white w-[90%] max-w-md rounded-2xl p-5">
+
+        <h2 class="text-xl font-bold mb-4">
+
+            New Chat
+
+        </h2>
+
+        <input
+            id="searchPhone"
+            type="text"
+            placeholder="Enter phone number..."
+            class="w-full border rounded-xl p-3 outline-none">
+
+        <button
+            id="searchBtn"
+            class="w-full mt-4 bg-blue-600 text-white rounded-xl py-3">
+
+            Search
+
+        </button>
+
+        <div
+            id="searchResult"
+            class="mt-5">
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

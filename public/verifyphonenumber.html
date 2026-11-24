@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PingoApp - Phone Verification</title>
+    <link rel="stylesheet" href="output-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+</head>
+
+<body
+    class="bg-gray-50 font-sans text-gray-900 min-h-screen">
+
+    <!-- Header -->
+
+    <header
+        class="fixed top-0 left-0 w-full h-16 bg-gray-100 shadow-sm flex items-center justify-between px-4 z-40">
+
+        <div class="flex items-center gap-3">
+
+            <button
+                type="button"
+                class="w-10 h-10 rounded-full hover:bg-gray-200 transition">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+            </button>
+
+            <h1
+                class="text-2xl font-bold text-blue-600">
+
+                BuzzMe
+
+            </h1>
+
+        </div>
+
+        <button
+            type="button"
+            class="w-10 h-10 rounded-full hover:bg-gray-200 transition">
+
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+
+        </button>
+
+    </header>
+
+    <!-- Main -->
+
+    <main
+        class="max-w-md mx-auto pt-20 pb-10 px-4">
+
+        <!-- Hero -->
+
+        <div
+            class="rounded-2xl overflow-hidden shadow-lg h-60">
+
+            <img
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCw7fi_GrSpSALP9QZTrspe-ME9qsibCfXjEEQb4rY3RvYYgoR9Q22lozpqxDjIEmr_HSPmTK5bnVNuEQNjHrUgOQFT5lJk03f94lpFZDFlTnBL7V_f5gLW_fViU4_exLjMCCh6PYlAZez2puFXE2f9q9zWYqPN1mRp94XeWjPAT1LLLn8kat6_Xre6xdM8kxhoifxMEF2hY-gYk6rQcyUWzB0XJwIICLRjuziOq-S06IHguFzic-fb1tjo5aDwBtFrZwfyzUx5Gw"
+                class="w-full h-full object-cover">
+
+        </div>
+
+        <!-- Heading -->
+
+        <div
+            class="text-center mt-8">
+
+            <h2
+                class="text-3xl font-bold">
+
+                Verify your phone number
+
+            </h2>
+
+            <p
+                class="text-gray-500 mt-3 leading-relaxed">
+
+                BuzzMe will send an SMS message to verify your phone number.
+
+            </p>
+
+        </div>
+
+        <!-- Register Form -->
+
+        <form
+            id="registerForm"
+            class="mt-10">
+
+            <!-- Country Button -->
+            <div class="relative mt-10">
+            <button
+                id="countryBtn"
+                type="button"
+                class="w-full rounded-xl border border-gray-300 bg-gray-100 p-4 flex justify-between items-center hover:bg-gray-200 transition">
+
+                <div class="flex items-center gap-3">
+
+                    <span
+                        id="countryFlag"
+                        class="text-2xl">
+
+                        🇺🇸
+
+                    </span>
+
+                    <span
+                        id="countryName"
+                        class="font-semibold">
+
+                        United States
+
+                    </span>
+
+                </div>
+
+                <i
+                    class="fa-solid fa-chevron-down"></i>
+                </button>
+            </div>
+             <!-- ==========================================
+         COUNTRY PICKER MODAL
+    =========================================== -->
+
+    <div
+        id="countryModal"
+        class="hidden fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+
+        <div
+            class="bg-white w-[95%] max-w-md rounded-2xl shadow-xl overflow-hidden">
+
+            <!-- Header -->
+
+            <div
+                class="flex items-center justify-between p-3 border-b">
+
+                <h2
+                    class="text-lg font-semibold">
+
+                    Select Country
+
+                </h2>
+
+                <button
+                    id="closeCountryModal"
+                    type="button"
+                    class="w-8 h-8 rounded-full hover:bg-gray-100">
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </button>
+
+            </div>
+
+            <!-- Search -->
+
+            <div
+                class="p-3">
+
+                <input
+                    id="countrySearch"
+                    type="text"
+                    placeholder="Search country..."
+                    class="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-blue-600">
+
+            </div>
+
+            <!-- Country List -->
+
+            <div
+                id="countryList"
+                class="max-h-[420px] overflow-y-auto">
+
+            </div>
+
+        </div>
+
+    </div>
+                        <!-- ==============================
+                 PHONE NUMBER
+            =============================== -->
+
+            <div
+                class="mt-8 flex items-center rounded-xl border border-gray-300 bg-gray-100 overflow-hidden focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-200 transition">
+
+                <!-- Country Code -->
+
+                <div
+                    id="countryCode"
+                    class="px-4 font-semibold text-gray-700">
+
+                    +1
+
+                </div>
+
+                <!-- Divider -->
+
+                <div
+                    class="w-px h-8 bg-gray-300">
+
+                </div>
+
+                <!-- Phone Input -->
+
+                <input
+                    id="phoneInput"
+                    type="tel"
+                    inputmode="numeric"
+                    autocomplete="tel"
+                    placeholder="Phone number"
+                    class="flex-1 h-14 px-4 bg-transparent outline-none text-lg placeholder:text-gray-400">
+
+            </div>
+
+
+            <!-- ==============================
+                 SECURITY PIN
+            =============================== -->
+
+            <div
+                class="mt-8">
+
+                <label
+                    class="block mb-4 text-gray-600 font-medium">
+
+                    Enter your Security PIN
+
+                </label>
+
+                <div
+                    class="flex items-center justify-between">
+
+                    <input
+                        type="password"
+                        inputmode="numeric"
+                        maxlength="1"
+                        class="otp-input w-12 h-14 rounded-xl border border-gray-300 bg-gray-100 text-center text-2xl font-bold focus:ring-2 focus:ring-blue-600 outline-none">
+
+                    <input
+                        type="password"
+                        inputmode="numeric"
+                        maxlength="1"
+                        class="otp-input w-12 h-14 rounded-xl border border-gray-300 bg-gray-100 text-center text-2xl font-bold focus:ring-2 focus:ring-blue-600 outline-none">
+
+                    <input
+                        type="password"
+                        inputmode="numeric"
+                        maxlength="1"
+                        class="otp-input w-12 h-14 rounded-xl border border-gray-300 bg-gray-100 text-center text-2xl font-bold focus:ring-2 focus:ring-blue-600 outline-none">
+
+                    <span
+                        class="text-2xl text-gray-400">
+
+                        •
+
+                    </span>
+
+                    <input
+                        type="password"
+                        inputmode="numeric"
+                        maxlength="1"
+                        class="otp-input w-12 h-14 rounded-xl border border-gray-300 bg-gray-100 text-center text-2xl font-bold focus:ring-2 focus:ring-blue-600 outline-none">
+
+                    <input
+                        type="password"
+                        inputmode="numeric"
+                        maxlength="1"
+                        class="otp-input w-12 h-14 rounded-xl border border-gray-300 bg-gray-100 text-center text-2xl font-bold focus:ring-2 focus:ring-blue-600 outline-none">
+
+                    <input
+                        type="password"
+                        inputmode="numeric"
+                        maxlength="1"
+                        class="otp-input w-12 h-14 rounded-xl border border-gray-300 bg-gray-100 text-center text-2xl font-bold focus:ring-2 focus:ring-blue-600 outline-none">
+
+                </div>
+
+            </div>
+
+
+            <!-- ==============================
+                 SIGN UP BUTTON
+            =============================== -->
+
+            <button
+                id="nextBtn"
+                type="submit"
+                class="w-full mt-10 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 rounded-xl flex items-center justify-center gap-2 transition active:scale-95">
+
+                <span>
+
+                    Next
+
+                </span>
+
+                <i
+                    class="fa-solid fa-arrow-right">
+
+                </i>
+
+            </button>
+
+        </form>
+            </main>
+
+   
+
+
+
+    <!-- ==========================================
+         LOADING OVERLAY
+    =========================================== -->
+
+    <div
+        id="loadingOverlay"
+        class="fixed inset-0 hidden bg-black/50 items-center justify-center z-50">
+
+        <div
+            class="bg-white rounded-2xl p-6 flex flex-col items-center gap-4 shadow-xl">
+
+            <i
+                class="fa-solid fa-spinner fa-spin text-4xl text-blue-600">
+
+            </i>
+
+            <p
+                class="font-semibold text-gray-700">
+
+                Creating your account...
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    =========================================== -->
+
+    <script src="./js/country-picker.js"></script>
+
+    <script src="./js/verifyPhoneNumber.js"></script>
+
+</body>
+
+</html>
